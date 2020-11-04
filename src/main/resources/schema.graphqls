@@ -1,0 +1,59 @@
+type Publisher {
+    id: ID!
+    name: String!
+    authors: [Author]
+    books: [Book]
+}
+
+type Author {
+    id: ID!
+    name: String!
+    publisher: Publisher!
+    books: [Book]!
+}
+
+type Book {
+    id: ID!
+    title: String!
+    ISBN: String!
+    author: Author!
+    publisher: Publisher!
+}
+
+input PublisherId {
+    id: ID!
+}
+
+input AuthorId {
+    id: ID!
+}
+
+input publisherCreate {
+    name: String!
+}
+
+input authorCreate {
+    name: String!
+    publisher: PublisherId!
+}
+
+input bookCreate {
+    title: String!
+    ISBN: String!
+    author: AuthorId!
+    publisher: PublisherId!
+}
+
+# Mutation: to add entities
+type Mutation {
+	addPublisher(input: publisherCreate): Publisher!
+	addAuthor(input: authorCreate): Author!
+	addBook(input: bookCreate): Book!
+}
+
+# The Root Query for the application
+type Query {
+	publisherById(id:Int): Publisher
+    authorById(id:Int): Author
+    bookById(id:Int): Book
+}
