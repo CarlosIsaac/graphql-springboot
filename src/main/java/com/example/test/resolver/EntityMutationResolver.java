@@ -38,7 +38,7 @@ public class EntityMutationResolver implements GraphQLMutationResolver {
     public Book addBook(Book newBook) throws Exception {
         Book book = new Book();
         book.setTitle(newBook.getTitle());
-        book.setISBN(newBook.getISBN());
+        book.setIsbn(newBook.getIsbn());
         book.setAuthor(authorService.findOne(newBook.getAuthor().getId()).get());
         book.setPublisher(publisherService.findOne(newBook.getPublisher().getId()).get());
         return bookService.save(book);

@@ -1,17 +1,13 @@
 package com.example.test.domain;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @Entity
-@EqualsAndHashCode
-@Table(name = "author")
+@Data
 public class Author implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -24,7 +20,7 @@ public class Author implements Serializable {
     private String name;
 
     @OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
-    private List<Book> books = new ArrayList<>();
+    private List<Book> books;
 
     @ManyToOne
     @JoinColumn(name = "publisher_id")

@@ -1,15 +1,12 @@
 package com.example.test.domain;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Data
 @Entity
-@EqualsAndHashCode
-@Table(name = "book")
+@Data
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,8 +17,7 @@ public class Book implements Serializable {
 
     private String title;
 
-    @Column(name = "isbn")
-    private String ISBN;
+    private String isbn;
 
     @ManyToOne
     @JoinColumn(name = "author_id")

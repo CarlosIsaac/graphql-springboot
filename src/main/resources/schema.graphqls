@@ -15,7 +15,7 @@ type Author {
 type Book {
     id: ID!
     title: String!
-    ISBN: String!
+    isbn: String!
     author: Author!
     publisher: Publisher!
 }
@@ -39,7 +39,7 @@ input authorCreate {
 
 input bookCreate {
     title: String!
-    ISBN: String!
+    isbn: String!
     author: AuthorId!
     publisher: PublisherId!
 }
