@@ -20,10 +20,8 @@ public class Book implements Serializable {
     private String isbn;
 
     @ManyToOne
-    @JoinColumn(name = "author_id")
     private Author author;
 
     @ManyToOne
-    @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 }

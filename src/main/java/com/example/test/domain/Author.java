@@ -23,6 +23,5 @@ public class Author implements Serializable {
     private List<Book> books;
 
     @ManyToOne
-    @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 }
